@@ -1,0 +1,109 @@
+---
+import '../styles/global.css'
+// src/pages/index.astro
+const researchLogs = [
+  {
+    title: "Optimizing the Render Graph",
+    category: "Architecture",
+    desc: "A study on frame-dependency and parallelizing GPU commands.",
+    accent: "orange"
+  },
+  {
+    title: "Voxel Data Structures",
+    category: "Data",
+    desc: "Implementing SVOs (Sparse Voxel Octrees) for infinite terrain.",
+    accent: "slate"
+  }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>PixelMath</title>
+	</head>
+	<body class="bg-[#121417] text-[#D1D5DB] font-sans antialiased selection:bg-[#FF6B2C]/30">
+		
+		<nav class="max-w-6xl mx-auto px-10 py-10 flex justify-between items-center opacity-60 hover:opacity-100 transition-opacity duration-500">
+			<div class="text-xs tracking-[0.4em] font-bold uppercase">PixelMath</div>
+			<div class="flex gap-8 text-[10px] tracking-widest uppercase">
+				<a href="/blogs" class="hover:text-white">Blogs</a>
+				<a href="/labs" class="hover:text-white">Labs</a>
+				<a href="/about" class="hover:text-white">Identity</a>
+			</div>
+		</nav>
+
+		<main class="max-w-6xl mx-auto px-10 pt-20 pb-40">
+			
+			<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
+				<div class="lg:col-span-5">
+					<div class="h-[2px] w-12 bg-[#FF6B2C] mb-8"></div>
+					<h1 class="text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
+						Technical <br/> Deep Dives.
+					</h1>
+					<p class="text-slate-500 max-w-sm leading-relaxed text-sm uppercase tracking-wide">
+						Documenting the logic behind rendering engines and low-level optimizations.
+					</p>
+				</div>
+				
+				<div class="lg:col-span-7 relative flex justify-center">
+					<div class="absolute w-64 h-64 border-[1px] border-[#FF6B2C]/20 rounded-full animate-pulse"></div>
+					<div class="relative z-10 p-12 bg-[#1A1D21] border border-white/5 rounded-2xl shadow-2xl">
+						<div class="font-mono text-[10px] text-slate-500 space-y-2">
+							<p class="text-[#FF6B2C]">>> INITIALIZING_RENDER_PIPELINE</p>
+							<p>> Memory status: nominal</p>
+							<p>> Threads active: 12</p>
+							<p>> Frame time: 16.6ms</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
+				{researchLogs.map((log) => (
+					<a href="#" class="group bg-[#121417] p-12 transition-all hover:bg-[#16191D]">
+						<span class="text-[10px] tracking-[0.3em] uppercase text-slate-500 mb-4 block">
+							{log.category}
+						</span>
+						<h3 class="text-2xl font-light text-white mb-4 group-hover:translate-x-2 transition-transform duration-300">
+							{log.title}
+						</h3>
+						<p class="text-sm text-slate-500 leading-relaxed max-w-xs">
+							{log.desc}
+						</p>
+						<div class="mt-8 opacity-0 group-hover:opacity-100 transition-opacity text-[#FF6B2C] text-xs">
+							READ_FULL_LOG ->
+						</div>
+					</a>
+				))}
+			</div>
+
+		</main>
+
+		<footer class="border-t border-white/5 py-20 px-10 bg-[#0E1012]">
+			<div class="max-w-6xl mx-auto flex justify-between items-center opacity-40 text-[10px] tracking-widest uppercase">
+				<p>Terminal 01 // 2026</p>
+				<div class="flex gap-10">
+					<a href="#">Source</a>
+					<a href="#">Network</a>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+</html>
+
+<style is:global>
+	/* Background texture to give that matte look */
+	body {
+		background-image: radial-gradient(circle at 50% 50%, #1A1D21 0%, #121417 100%);
+	}
+	
+	/* Smooth fonts for that premium feel */
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+	
+	body {
+		font-family: 'Inter', sans-serif;
+	}
+</style>
+

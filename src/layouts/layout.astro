@@ -1,0 +1,44 @@
+---
+// src/layouts/Layout.astro
+const { title } = Astro.props;
+import '../styles/global.css'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-[#121417] text-[#D1D5DB] font-sans antialiased selection:bg-[#FF6B2C]/30">
+		
+		<nav class="max-w-6xl mx-auto px-10 py-10 flex justify-between items-center opacity-60 hover:opacity-100 transition-opacity duration-500">
+			<a href="/" class="text-xs tracking-[0.4em] font-bold uppercase text-white">PIXELMATH</a>
+			<div class="flex gap-8 text-[10px] tracking-widest uppercase">
+				<a href="/blogs" class="hover:text-white">Blogs</a>
+				<a href="/labs" class="hover:text-white">Labs</a>
+				<a href="/identity" class="hover:text-white">Identity</a>
+			</div>
+		</nav>
+
+		<slot />
+
+		<footer class="border-t border-white/5 py-20 px-10 bg-[#0E1012] mt-20">
+			<div class="max-w-6xl mx-auto flex justify-between items-center opacity-40 text-[10px] tracking-widest uppercase">
+				<p>Terminal 01 // 2026</p>
+				<div class="flex gap-10">
+					<a href="#">Source</a>
+					<a href="#">Network</a>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+	body { font-family: 'Inter', sans-serif; }
+</style>
